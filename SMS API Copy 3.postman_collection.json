@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "ff898900-d82b-4625-8c06-ef845cdb12f8",
+		"name": "SMS API Copy 3",
+		"description": "Documentation of API endpoints of SMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9931814"
+	},
+	"item": [
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "token",
+							"item": [
+								{
+									"name": "Obtain token",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "username",
+													"value": "admin",
+													"description": "(Required) "
+												},
+												{
+													"key": "password",
+													"value": "123456",
+													"description": "(Required) "
+												},
+												{
+													"key": "key_type",
+													"value": "pc",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "http://161.97.136.74:7000/api/v1/auth/token/",
+											"protocol": "http",
+											"host": [
+												"161",
+												"97",
+												"136",
+												"74"
+											],
+											"port": "7000",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"token",
+												""
+											]
+										},
+										"description": "Takes a set of user credentials and returns an access and refresh JSON web\ntoken pair to prove the authentication of those credentials."
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "questions",
+					"item": [
+						{
+							"name": "categories",
+							"item": [
+								{
+									"name": "List",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "http://161.97.136.74:7000/api/v1/questions/categories/",
+											"protocol": "http",
+											"host": [
+												"161",
+												"97",
+												"136",
+												"74"
+											],
+											"port": "7000",
+											"path": [
+												"api",
+												"v1",
+												"questions",
+												"categories",
+												""
+											]
+										},
+										"description": "List all categories or create a new category."
+									},
+									"response": []
+								},
+								{
+									"name": "Create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "HTTP_X_UNIQUE_KEY",
+												"value": "deserunt 1234eds pc",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "category1",
+													"description": "(Required) "
+												},
+												{
+													"key": "description",
+													"value": "c"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://161.97.136.74:7000/api/v1/questions/categories/",
+											"protocol": "http",
+											"host": [
+												"161",
+												"97",
+												"136",
+												"74"
+											],
+											"port": "7000",
+											"path": [
+												"api",
+												"v1",
+												"questions",
+												"categories",
+												""
+											]
+										},
+										"description": "List all categories or create a new category."
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Upload & Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"type": "file",
+											"src": "/home/xd/Downloads/Nişanlanma xətləri/10_Nişanlanma xətləri/1_3.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://161.97.136.74:7000/api/v1/questions/upload/",
+									"protocol": "http",
+									"host": [
+										"161",
+										"97",
+										"136",
+										"74"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"questions",
+										"upload",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "category2",
+											"type": "text"
+										},
+										{
+											"key": "question_name",
+											"value": "product-backlog-example.png",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://161.97.136.74:7000/api/v1/questions/delete/",
+									"protocol": "http",
+									"host": [
+										"161",
+										"97",
+										"136",
+										"74"
+									],
+									"port": "7000",
+									"path": [
+										"api",
+										"v1",
+										"questions",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://161.97.136.74",
+			"type": "string"
+		}
+	]
+}
